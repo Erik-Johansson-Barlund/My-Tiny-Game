@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* prevents scrollbars */
+  background-color: #2e2d2d;
+}
+
+canvas {
+  background-color: #2e2d2d;
+  display: block;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
