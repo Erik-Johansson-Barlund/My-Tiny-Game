@@ -1,5 +1,5 @@
 import { Game } from "./core/game";
-import { tileRegistry, loadTileImages } from "./core/tileLoader";
+import { loadAssets } from "./core/assetLoader";
 import { TileMap } from "./map/tileMap";
 
 const canvas = document.createElement("canvas");
@@ -31,8 +31,7 @@ const ctx = canvas.getContext("2d");
 
 if (!ctx) throw new Error("Canvas context not available");
 
-loadTileImages(tileRegistry).then((images) => {
-  const tileMap = new TileMap(images);
-  const game = new Game(ctx, tileMap); // pass it in
+loadAssets().then((assets) => {
+  const game = new Game(ctx, assets);
   game.start();
 });

@@ -1,18 +1,27 @@
+// src/core/game.ts
 import { InputManager } from "./inputManager";
-import { Player } from "../entities/player";
 import { TileMap } from "../map/tileMap";
+import { EntitiesList } from "../entities/entitiesList";
+import { Assets } from "./assets";
+import { generateLevel } from "../levelGenerator/levelGenerator";
 
 export class Game {
   private ctx: CanvasRenderingContext2D;
   private lastTime = 0;
   private input = new InputManager();
-  private player = new Player(9, 9);
   private tileMap: TileMap;
+  private entities: EntitiesList;
+  private assets: Assets;
 
-  constructor(ctx: CanvasRenderingContext2D, tileMap: TileMap) {
+  constructor(ctx: CanvasRenderingContext2D, assets: Assets) {
     this.ctx = ctx;
+    this.assets = assets;
 
+    // Generate the level, which creates both a tileMap and an EntitiesList with dynamic content.
+    const { tileMap, entities } = generateLevel(assets);
     this.tileMap = tileMap;
+    this.entities = entities;
+
     window.addEventListener("keydown", (e) => this.input.keyDown(e));
     window.addEventListener("keyup", (e) => this.input.keyUp(e));
   }
@@ -32,18 +41,15 @@ export class Game {
   }
 
   update(delta: number) {
-    this.player.update(this.input, this.tileMap); // pass tileMap if you want to check for walls
-    this.player.render(
-      this.ctx,
-      this.tileMap.tileWidth,
-      this.tileMap.tileHeight
-    );
+    // Update all entities (player, rocks, etc.) dynamically generated in the level.
+    this.entities.update(this.input, this.tileMap);
   }
 
   render() {
     this.ctx.clearRect(0, 0, 800, 600);
     this.tileMap.render(this.ctx);
-    this.player.render(
+    // Render all entities on top of the tile map
+    this.entities.render(
       this.ctx,
       this.tileMap.tileWidth,
       this.tileMap.tileHeight
