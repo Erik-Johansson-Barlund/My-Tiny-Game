@@ -31,16 +31,16 @@ export async function loadAssets(): Promise<{
 }
 
 export const tileRegistry: Record<string, string> = {
-  grass1: "../assets/tiles/grass1.png",
-  grass2: "../assets/tiles/grass2.png",
-  grass3: "../assets/tiles/grass3.png",
-  edgeLeft: "../assets/tiles/edgeLeft.png",
-  edgeTopLeft: "../assets/tiles/edgeTopLeft.png",
-  edgeRight: "../assets/tiles/edgeRight.png",
-  edgeTopRight: "../assets/tiles/edgeTopRight.png",
-  edgeCenter: "../assets/tiles/edgeCenter.png",
+  grass1: "assets/tiles/grass1.png",
+  grass2: "assets/tiles/grass2.png",
+  grass3: "assets/tiles/grass3.png",
+  edgeLeft: "assets/tiles/edgeLeft.png",
+  edgeTopLeft: "assets/tiles/edgeTopLeft.png",
+  edgeRight: "assets/tiles/edgeRight.png",
+  edgeTopRight: "assets/tiles/edgeTopRight.png",
+  edgeCenter: "assets/tiles/edgeCenter.png",
 };
 
 export const rockRegistry: Record<string, string> = {
-  rock1: "../assets/obstacles/rock1.png",
+  rock1: "assets/obstacles/rock1.png",
 };
