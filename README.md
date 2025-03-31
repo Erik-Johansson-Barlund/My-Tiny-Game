@@ -1,5 +1,7 @@
 # My Tiny Game Project
 
+[Current state of the game](https://erik-johansson-barlund.github.io/My-Tiny-Game/)
+
 ## Development Log - 2025/03/30
 
 ### Changelog
