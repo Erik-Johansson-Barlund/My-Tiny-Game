@@ -2,10 +2,13 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./", // or '/your-repo-name/' if deploying to GitHub Pages project site
+  base: "./",
   root: ".",
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    rollupOptions: {
+      input: "/index.html",
+    },
   },
 });
