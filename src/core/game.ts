@@ -42,7 +42,7 @@ export class Game {
 
   update(delta: number) {
     // Update all entities (player, rocks, etc.) dynamically generated in the level.
-    this.entities.update(this.input, this.tileMap);
+    this.entities.update(this.input, this.tileMap, delta);
   }
 
   render() {

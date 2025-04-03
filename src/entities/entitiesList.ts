@@ -19,11 +19,11 @@ export class EntitiesList {
     }
   }
 
-  update(input: InputManager, tileMap: TileMap) {
+  update(input: InputManager, tileMap: TileMap, delta: number): void {
     // Pass all entities as collidables to the Player's update.
     for (const entity of this.entities) {
       if (entity instanceof Player) {
-        entity.update(input, tileMap, this.entities);
+        entity.update(input, tileMap, this.entities, delta);
       } else {
         entity.update(input, tileMap);
       }

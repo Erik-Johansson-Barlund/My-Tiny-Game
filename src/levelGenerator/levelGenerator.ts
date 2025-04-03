@@ -12,7 +12,7 @@ export function generateLevel(assets: Assets): {
   const tileMap = new TileMap(assets.tiles);
 
   // Create a new entities list for the level
-  const entities = new EntitiesList([new Player(9, 9)]);
+  const entities = new EntitiesList([new Player(9, 9, assets.player)]);
 
   const rocks = [];
   for (let y = 0; y < 18; y++) {
