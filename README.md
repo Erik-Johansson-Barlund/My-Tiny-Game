@@ -2,6 +2,38 @@
 
 [Current state of the game](https://erik-johansson-barlund.github.io/My-Tiny-Game/)
 
+## Development Log - 2025/04/06
+
+### Changelog
+- Adds Door class for rendering doors and door sprite
+- Level generator now randomly generates a level
+- Navigation between "Rooms"
+- minimap showing layout and current location
+
+I messed up real bad today.
+
+I’ve heard whispers of the new Claude Code tool from Anthropic. People seem to be generally impressed with the capabilities of the tool and the quality of the generated code. Now I did decide early on that this project should be about writing code myself and not relying on AI in that capacity. And still, this is my forum for coding right now and is likely to remain so for the foreseeable future. If I want to try out a new tool, this codebase will be where I do it.
+
+What harm could it possibly do? 👹
+
+Now, no one has ever accused me of thinking through stuff too much. When I installed the CLI tool, I was already a couple of hours into coding. Sure, I could have merged what I had done up to that point, but where’s the fun in that? “Let Claude rip,” I thought to myself as I entered the command: “Please make the level generator create 5 rooms instead of 1.” Off it went—changing files, doing its thing. Within a minute, I had it. “COOL, make my new (unmerged) Door class connect the rooms.” Beep boop, there you go!
+
+It went on like this for 5 minutes until the app crashed. Digging into the code, I realized that I now had multiple instances of functions within the same files, coordinates had been switched, and I had new variables being passed without being used on the other end. Claude sure is a messy little fucker.
+
+I know it’s my fault. I take full responsibility. And at the same time, I’m glad I did it.
+
+It took me 5 minutes and cost about $3 to thoroughly fuck up my codebase. Then it took me 3 hours more to unfuck it. In the process of retracing the AI’s steps, I realized that I truly did not like a lot of the code that had been generated. Bugs and crashes aside, it was some of the most awkward stuff I’ve seen in a while. You’ve got a ways to go there, bud.
+
+I was talking about Claude with some friends just the other day, having the same ominous feelings I felt when ChatGPT first came on the scene. If it’s truly that good, why do they need us? Those fears are truly quenched. For the moment, I feel super secure; AI will not replace me anytime soon.
+
+It wasn’t all a waste, though. As a bonus, while doing my bidding, it threw in a screen transition effect while switching screens. This was totally unprompted, as I hadn’t thought about that aspect at all. I kept that part of Claude’s work in; the rest I cleaned out as best I could.
+
+The game is really starting to come together now. It almost feels like a game. 🤣 I think it’s time to start thinking about enemies.
+
+Stay tuned for that.
+
+![ezgif-60bcd19e8d9b94](https://github.com/user-attachments/assets/8af01762-7493-410e-b333-cfde1183f74d)
+
 ## Development Log - 2025/04/03
 
 ### Changelog
