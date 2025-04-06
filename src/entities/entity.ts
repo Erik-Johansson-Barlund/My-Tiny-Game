@@ -8,6 +8,10 @@ export interface Entity {
     entities?: Entity[],
     delta?: number
   ): void;
+
+  alwaysOnTop?: boolean;
+  alwaysOnBottom?: boolean;
+
   render(
     ctx: CanvasRenderingContext2D,
     tileWidth: number,

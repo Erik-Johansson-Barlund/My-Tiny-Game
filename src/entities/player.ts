@@ -250,6 +250,15 @@ export class Player implements Entity {
     const screenX = offsetX + (this.gridX - this.gridY) * (tileWidth / 2);
     const screenY = offsetY + (this.gridX + this.gridY) * (tileHeight / 2);
 
+    // // draw a yellow rectangle for debugging
+    // ctx.strokeStyle = "yellow";
+    // ctx.strokeRect(
+    //   screenX - this.currentAnimation.frameWidth / 2,
+    //   screenY - this.currentAnimation.frameHeight / 2,
+    //   this.currentAnimation.frameWidth,
+    //   this.currentAnimation.frameHeight
+    // );
+
     ctx.save();
     // Draw the current frame of the active animation.
     const scaledWidth = this.currentAnimation.frameWidth + 15; // Adjusted for zoom

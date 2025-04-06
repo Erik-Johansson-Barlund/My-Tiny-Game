@@ -1,11 +1,10 @@
-// src/entities/entitiesList.ts
 import { Entity } from "./entity";
 import { InputManager } from "../core/inputManager";
 import { TileMap } from "../map/tileMap";
 import { Player } from "./player";
 
 export class EntitiesList {
-  private entities: Entity[];
+  public entities: Entity[];
 
   constructor(initialEntities: Entity[] = []) {
     this.entities = initialEntities;
@@ -19,13 +18,17 @@ export class EntitiesList {
     }
   }
 
+  getEntities(): Entity[] {
+    return this.entities;
+  }
+
   update(input: InputManager, tileMap: TileMap, delta: number): void {
     // Pass all entities as collidables to the Player's update.
     for (const entity of this.entities) {
       if (entity instanceof Player) {
         entity.update(input, tileMap, this.entities, delta);
       } else {
-        entity.update(input, tileMap);
+        entity.update(input, tileMap, this.entities);
       }
     }
   }
@@ -37,6 +40,15 @@ export class EntitiesList {
   ): void {
     // Sort entities by their depth (here using gridX + gridY)
     this.entities.sort((a, b) => {
+      // If one entity is alwaysOnTop and the other isn't, alwaysOnTop comes later (rendered last)
+      if (a.alwaysOnTop && !b.alwaysOnTop) return 1;
+      if (!a.alwaysOnTop && b.alwaysOnTop) return -1;
+
+      // If one entity is alwaysOnBottom and the other isn't, alwaysOnBottom comes first (rendered first)
+      if (a.alwaysOnBottom && !b.alwaysOnBottom) return -1;
+      if (!a.alwaysOnBottom && b.alwaysOnBottom) return 1;
+
+      // Otherwise, sort by depth (gridX + gridY)
       const depthA = (a as any).gridX + (a as any).gridY;
       const depthB = (b as any).gridX + (b as any).gridY;
       return depthA - depthB;

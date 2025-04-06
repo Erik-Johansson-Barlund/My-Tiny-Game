@@ -24,12 +24,14 @@ export async function loadAssets(): Promise<{
   tiles: Record<string, HTMLImageElement>;
   rocks: Record<string, HTMLImageElement>;
   player: Record<string, HTMLImageElement>;
+  doors: Record<string, HTMLImageElement>;
 }> {
   const tiles = await loadImages(tileRegistry);
   const rocks = await loadImages(rockRegistry);
   const player = await loadImages(playerRegistry);
+  const doors = await loadImages(doorRegistry);
 
-  return { tiles, rocks, player };
+  return { tiles, rocks, player, doors };
 }
 
 export const tileRegistry: Record<string, string> = {
@@ -56,4 +58,11 @@ export const playerRegistry: Record<string, string> = {
   player_downright: "assets/player/Character_DownRight.png",
   player_left: "assets/player/Character_Left.png",
   player_right: "assets/player/Character_Right.png",
+};
+
+export const doorRegistry: Record<string, string> = {
+  door_upleft: "assets/doors/upleft.png",
+  door_upright: "assets/doors/upright.png",
+  door_downleft: "assets/doors/downleft.png",
+  door_downright: "assets/doors/downright.png",
 };
