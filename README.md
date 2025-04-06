@@ -2,6 +2,21 @@
 
 [Current state of the game](https://erik-johansson-barlund.github.io/My-Tiny-Game/)
 
+## Development Log - 2025/04/03
+
+### Changelog
+- Generic spriteAnimation class for handling animations
+- A little guy
+
+One could easily make the argument that pretty sprites are not really important during development and that the focus should be on logic and game design.
+
+One could say that...
+
+But sometimes, you just want a little guy ❤️
+
+![ezgif-3188719551b575](https://github.com/user-attachments/assets/fbf95ca2-a186-44d9-9f34-169f940aafdf)
+
+
 ## Development Log - 2025/03/30
 
 ### Changelog
